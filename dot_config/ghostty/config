@@ -1,0 +1,49 @@
+# Ghostty config — ported from kitty.conf (2026-07-27)
+# Reload without restart: Cmd+Shift+, (or `ghostty +show-config` to inspect)
+# Docs: https://ghostty.org/docs/config
+# Only settings that differ from Ghostty defaults are included.
+
+# --- Startup ---
+# Kitty's startup.session did `cd ~/Developer; launch zsh`.
+# Ghostty has no session file; zsh is your login shell already, so we just set the cwd.
+working-directory = /Users/hernangonzalez/Developer
+# Restore windows/tabs after a restart (macOS state restoration).
+window-save-state = always
+
+# --- Fonts ---
+font-family = FiraCode Nerd Font Mono
+font-size = 12
+# NOTE: no equivalent for kitty's `disable_ligatures cursor` (ligatures only under
+# the cursor). Ligatures are on by default. To kill them entirely, uncomment:
+# font-feature = -calt, -liga, -dlig
+
+# --- Cursor ---
+cursor-style = bar
+cursor-style-blink = false
+
+# --- Mouse ---
+copy-on-select = clipboard
+
+# --- Window ---
+# kitty window_padding_width was `8 8 8 16` (top right bottom left).
+window-padding-x = 16,8
+window-padding-y = 8,8
+confirm-close-surface = false
+
+# --- Theme (Nightfox) ---
+# Built-in theme is identical to your nightfox.conf palette 0-15 + bg/fg/cursor/selection.
+theme = Nightfox
+# Extended colors 16/17 from your kitty theme:
+palette = 16=#f4a261
+palette = 17=#d67ad2
+
+# Blurred/transparent variant (was nightfox-blurred.conf):
+background-opacity = 0.89
+background-blur = 10
+
+# --- macOS ---
+macos-option-as-alt = true
+quit-after-last-window-closed = true
+# Transparent titlebar lets the blur/transparency extend behind it
+# (closest to kitty's `macos_titlebar_color background`).
+macos-titlebar-style = transparent
