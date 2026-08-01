@@ -59,9 +59,10 @@ macos-option-as-alt = true
 quit-after-last-window-closed = false
 # Launch into the background at login — no window until the hotkey is pressed.
 initial-window = false
-# No Dock icon, no Cmd-Tab entry: behaves like a menu-bar utility.
-# NOTE: macOS disables automatic keyboard-layout switching while hidden.
-macos-hidden = always
+# Keep the Dock icon and Cmd-Tab entry. `always` hides both, which suits a
+# panel-only setup, but makes regular windows (Cmd+N from the panel)
+# unreachable once you click away from them.
+macos-hidden = never
 # Transparent titlebar lets the blur/transparency extend behind it
 # (closest to kitty's `macos_titlebar_color background`).
 macos-titlebar-style = transparent
