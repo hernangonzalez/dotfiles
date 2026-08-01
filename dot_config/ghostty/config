@@ -7,8 +7,9 @@
 # Kitty's startup.session did `cd ~/Developer; launch zsh`.
 # Ghostty has no session file; zsh is your login shell already, so we just set the cwd.
 working-directory = /Users/hernangonzalez/Developer
-# Restore windows/tabs after a restart (macOS state restoration).
-window-save-state = always
+# Don't restore windows/tabs after a restart — Ghostty now runs resident and
+# launches windowless, so restored windows would fight that.
+window-save-state = never
 
 # --- Fonts ---
 font-family = FiraCode Nerd Font Mono
@@ -53,7 +54,14 @@ quick-terminal-autohide = true
 
 # --- macOS ---
 macos-option-as-alt = true
-quit-after-last-window-closed = true
+# Stay resident so the global quick-terminal hotkey keeps working after every
+# window is closed. Ghostty's default; we were overriding it before.
+quit-after-last-window-closed = false
+# Launch into the background at login — no window until the hotkey is pressed.
+initial-window = false
+# No Dock icon, no Cmd-Tab entry: behaves like a menu-bar utility.
+# NOTE: macOS disables automatic keyboard-layout switching while hidden.
+macos-hidden = always
 # Transparent titlebar lets the blur/transparency extend behind it
 # (closest to kitty's `macos_titlebar_color background`).
 macos-titlebar-style = transparent
