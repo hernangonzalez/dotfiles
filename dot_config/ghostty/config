@@ -41,6 +41,16 @@ palette = 17=#d67ad2
 background-opacity = 0.89
 background-blur = 10
 
+# --- Quick terminal (quake-style drop-down panel) ---
+# Global keybind works even when Ghostty isn't focused. macOS will ask for
+# Accessibility permission the first time (System Settings > Privacy & Security
+# > Accessibility > Ghostty).
+keybind = global:cmd+shift+enter=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-animation-duration = 0.15
+# Hide the panel when it loses focus (comment out to keep it pinned).
+quick-terminal-autohide = true
+
 # --- macOS ---
 macos-option-as-alt = true
 quit-after-last-window-closed = true
