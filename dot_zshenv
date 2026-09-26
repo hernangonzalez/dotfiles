@@ -1,0 +1,11 @@
+# Cargo
+. "$HOME/.cargo/env"
+
+## Git GPG
+export GPG_TTY=$(tty)
+
+## Homebrew
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
+export PATH="$PATH:$HOME/go/bin"
