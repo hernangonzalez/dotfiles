@@ -7,8 +7,7 @@
 # Kitty's startup.session did `cd ~/Developer; launch zsh`.
 # Ghostty has no session file; zsh is your login shell already, so we just set the cwd.
 working-directory = /Users/hernangonzalez/Developer
-# Don't restore windows/tabs after a restart — Ghostty now runs resident and
-# launches windowless, so restored windows would fight that.
+# Don't restore windows/tabs after a restart.
 window-save-state = never
 
 # --- Fonts ---
@@ -42,27 +41,16 @@ palette = 17=#d67ad2
 background-opacity = 0.89
 background-blur = 10
 
-# --- Quick terminal (quake-style drop-down panel) ---
-# Global keybind works even when Ghostty isn't focused. macOS will ask for
-# Accessibility permission the first time (System Settings > Privacy & Security
-# > Accessibility > Ghostty).
-keybind = global:cmd+shift+enter=toggle_quick_terminal
-quick-terminal-position = top
-quick-terminal-animation-duration = 0.15
-# Hide the panel when it loses focus (comment out to keep it pinned).
-quick-terminal-autohide = true
+# --- Shell integration ---
+# ssh-terminfo installs Ghostty's terminfo (xterm-ghostty) on remote hosts the
+# first time you connect, so zsh's line editor renders correctly there instead
+# of duplicating characters. ssh-env falls back to a safe TERM when it can't.
+# The other three are Ghostty's defaults, repeated because setting this key
+# replaces the whole set.
+shell-integration-features = cursor,title,path,ssh-env,ssh-terminfo
 
 # --- macOS ---
 macos-option-as-alt = true
-# Stay resident so the global quick-terminal hotkey keeps working after every
-# window is closed. Ghostty's default; we were overriding it before.
-quit-after-last-window-closed = false
-# Launch into the background at login — no window until the hotkey is pressed.
-initial-window = false
-# Keep the Dock icon and Cmd-Tab entry. `always` hides both, which suits a
-# panel-only setup, but makes regular windows (Cmd+N from the panel)
-# unreachable once you click away from them.
-macos-hidden = never
 # Transparent titlebar lets the blur/transparency extend behind it
 # (closest to kitty's `macos_titlebar_color background`).
 macos-titlebar-style = transparent
